@@ -1,0 +1,59 @@
+<div class="signup-container">
+  <h2>Sign Up</h2>
+  <form [formGroup]="signupForm" (ngSubmit)="onSubmit()">
+
+    <!-- Username Field -->
+    <mat-form-field appearance="fill">
+      <mat-label>Name</mat-label>
+      <input matInput formControlName="name" placeholder="Enter your username" />
+      <mat-error *ngIf="signupForm.get('name')?.hasError('required')">
+        Username is required
+      </mat-error>
+    </mat-form-field>
+
+    <!-- Email Field -->
+    <mat-form-field appearance="fill">
+      <mat-label>Email</mat-label>
+      <input matInput formControlName="email" placeholder="Enter your email" />
+      <mat-error *ngIf="signupForm.get('email')?.hasError('required')">
+        Email is required
+      </mat-error>
+      <mat-error *ngIf="signupForm.get('email')?.hasError('email')">
+        Enter a valid email address
+      </mat-error>
+    </mat-form-field>
+
+    <!-- Password Field with Toggle -->
+    <mat-form-field appearance="fill">
+      <mat-label>Password</mat-label>
+      <input matInput [type]="hidePassword ? 'password' : 'text'" formControlName="password" placeholder="Enter your password" />
+      <button mat-icon-button matSuffix (click)="togglePasswordVisibility()" [attr.aria-label]="'Hide password'" [attr.aria-pressed]="hidePassword">
+        <mat-icon>{{hidePassword ? 'visibility_off' : 'visibility'}}</mat-icon>
+      </button>
+      <mat-error *ngIf="signupForm.get('password')?.hasError('required')">
+        Password is required
+      </mat-error>
+      <mat-error *ngIf="signupForm.get('password')?.hasError('minlength')">
+        Password must be at least 6 characters long
+      </mat-error>
+    </mat-form-field>
+
+    <!-- Confirm Password Field with Toggle -->
+    <mat-form-field appearance="fill">
+      <mat-label>Confirm Password</mat-label>
+      <input matInput [type]="hideConfirmPassword ? 'password' : 'text'" formControlName="confirmPassword" placeholder="Confirm your password" />
+      <button mat-icon-button matSuffix (click)="toggleConfirmPasswordVisibility()" [attr.aria-label]="'Hide confirm password'" [attr.aria-pressed]="hideConfirmPassword">
+        <mat-icon>{{hideConfirmPassword ? 'visibility_off' : 'visibility'}}</mat-icon>
+      </button>
+      <mat-error *ngIf="signupForm.get('confirmPassword')?.hasError('required')">
+        Confirm Password is required
+      </mat-error>
+      <mat-error *ngIf="signupForm.get('confirmPassword')?.hasError('mismatch')">
+        Passwords do not match
+      </mat-error>
+    </mat-form-field>
+
+    <!-- Submit Button -->
+    <button mat-raised-button color="primary" [disabled]="signupForm.invalid">Sign Up</button>
+  </form>
+</div>

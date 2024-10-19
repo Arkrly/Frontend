@@ -1,0 +1,57 @@
+.signup-container {
+  width: 100%;
+  max-width: 400px;
+  margin: 50px auto;
+  padding: 20px;
+  box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.1);
+  border-radius: 8px;
+  background-color: #fff;
+
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+
+h2 {
+  text-align: center; /* Centers the text */
+  margin-bottom: 20px; /* Optional: Adds space below the heading */
+}
+
+mat-form-field {
+  width: 100%;
+  margin-bottom: 15px;
+}
+
+button {
+  width: 100%;
+  padding: 10px;
+  font-size: 16px;
+}
+
+mat-icon {
+  cursor: pointer;
+}
+
+@media (max-width: 768px) {
+  .signup-container {
+    padding: 15px;
+    margin: 20px auto;
+  }
+
+  button {
+    font-size: 14px;
+    padding: 8px;
+  }
+}
+
+@media (max-width: 480px) {
+  .signup-container {
+    padding: 10px;
+    margin: 15px auto;
+  }
+
+  button {
+    font-size: 12px;
+    padding: 6px;
+  }
+}

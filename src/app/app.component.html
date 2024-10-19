@@ -1,0 +1,28 @@
+<div *ngIf="!isEmployeeLoggedIn && !isAdminLoggedIn">
+  <mat-toolbar class="azure-toolbar navbar">
+    <span class="navbar-brand">TASK MANAGEMENT SYSTEM</span>
+    <span class="spacer"></span>
+    <button mat-button routerLink="/signup" routerLinkActive="active">REGISTER</button>
+    <button mat-button routerLink="/login" routerLinkActive="active">LOGIN</button>
+  </mat-toolbar>
+</div>
+
+<div *ngIf="isAdminLoggedIn">
+  <mat-toolbar class="azure-toolbar navbar">
+    <span class="navbar-brand">ADMIN</span>
+    <span class="spacer"></span>
+    <button mat-button routerLink="/admin/dashboard" routerLinkActive="active">DASHBOARD</button>
+    <button mat-button routerLink="/admin/task" routerLinkActive="active">POST TASK</button>
+    <button mat-button (click)="logout()" routerLinkActive="active">LOGOUT</button>
+  </mat-toolbar>
+</div>
+
+<div *ngIf="isEmployeeLoggedIn">
+  <mat-toolbar class="azure-toolbar navbar">
+    <span class="navbar-brand">EMPLOYEE</span>
+    <span class="spacer"></span>
+    <button mat-button routerLink="/employee/dashboard" routerLinkActive="active">DASHBOARD</button>
+    <button mat-button (click)="logout()" routerLinkActive="active">LOGOUT</button>
+  </mat-toolbar>
+</div>
+<router-outlet></router-outlet>

@@ -1,0 +1,26 @@
+// Define internal Azure Blue theme for the toolbar
+.azure-toolbar {
+  background-color: #007FFF; /* Azure Blue */
+  color: white; /* White text color */
+}
+
+// Customizing the buttons within this toolbar
+.azure-toolbar button {
+  color: white;
+  font-weight: bold;
+}
+
+.navbar-brand {
+  font-size: 1.6rem;
+  font-weight: bold;
+  color: white;
+}
+
+.spacer {
+  flex-grow: 1;
+}
+
+/* Adjust the hover color for buttons */
+.azure-toolbar button:hover {
+  background-color: rgba(255, 255, 255, 0.1); /* Light transparent white hover */
+}
